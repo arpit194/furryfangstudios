@@ -8,7 +8,7 @@ function Home() {
   return (
     <div style={{ maxWidth: 720, margin: '0 auto', padding: '48px 24px', lineHeight: 1.6 }}>
       <main>
-        <h1>AmberFang</h1>
+        <h1>Furry Fang Studios</h1>
         <p>Games and interactive experiences.</p>
       </main>
 

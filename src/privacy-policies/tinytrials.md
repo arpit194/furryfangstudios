@@ -1,4 +1,4 @@
-AmberFang ("we", "us", "our") developed Tiny Trials (com.amberfang.tinytrials) as a free game, available on Android. This page informs you of our policies regarding the collection, use, and disclosure of information when you use our app.
+Furry Fang Studios ("we", "us", "our") developed Tiny Trials (com.furryfangstudios.tinytrials) as a free game, available on Android. This page informs you of our policies regarding the collection, use, and disclosure of information when you use our app.
 
 ## Information We Collect
 
