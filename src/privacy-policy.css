@@ -1,0 +1,170 @@
+.policy-page {
+  --ink: #e8e6e2;
+  --ink-dim: #a9b0b6;
+  --bg: #1b1f24;
+  --bg-raised: #22272d;
+  --blue-tint: #2b3540;
+  --amber: #d99a3f;
+  --amber-soft: #3a3226;
+  --hairline: #333a41;
+
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.policy-page * {
+  box-sizing: border-box;
+}
+
+.policy-shell {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ---------- Masthead ---------- */
+
+.policy-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+
+.policy-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.policy-updated {
+  font-size: 14px;
+  color: var(--ink-dim);
+  margin: 0 0 32px;
+}
+
+/* ---------- At-a-glance summary ---------- */
+
+.policy-glance {
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+.policy-glance h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin: 0 0 16px;
+}
+
+.policy-glance ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.policy-glance li {
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.policy-glance .mark {
+  color: var(--amber);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---------- Markdown body ---------- */
+
+.policy-body {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.policy-body > p:first-of-type {
+  color: var(--ink);
+}
+
+.policy-body h2 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 40px 0 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+
+.policy-body h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 4px;
+}
+
+.policy-body p {
+  color: var(--ink-dim);
+  margin: 0 0 14px;
+}
+
+.policy-body ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+
+.policy-body li {
+  color: var(--ink-dim);
+  margin-bottom: 6px;
+}
+
+.policy-body li::marker {
+  color: var(--amber);
+}
+
+.policy-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.policy-body a {
+  color: var(--amber);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.policy-body a:hover {
+  text-decoration-color: var(--amber);
+}
+
+.policy-body em {
+  color: var(--ink-dim);
+}
+
+/* ---------- Footer nav ---------- */
+
+.policy-back {
+  display: inline-block;
+  margin-top: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--amber);
+  text-decoration: none;
+}
+
+.policy-back:hover {
+  text-decoration: underline;
+}
