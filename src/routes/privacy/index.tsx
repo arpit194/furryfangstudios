@@ -1,47 +1,67 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { apps } from '../../data/apps'
+import { apps } from '@/data/apps'
+import { useScrollReveals } from '@/lib/motion'
 
 export const Route = createFileRoute('/privacy/')({
   component: PrivacyIndex,
 })
 
 function PrivacyIndex() {
-  return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 24px', lineHeight: 1.6 }}>
-      <h1>Privacy Policies</h1>
-      <p>Select a game to view its privacy policy.</p>
+  useScrollReveals()
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 32 }}>
-        {Object.values(apps).map((app) => (
-          <Link
-            key={app.id}
-            to="/privacy/$gameId"
-            params={{ gameId: app.id }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 16,
-              padding: 16,
-              border: '1px solid #ddd',
-              borderRadius: 12,
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            {app.thumbnail && (
-              <img
-                src={app.thumbnail}
-                alt={`${app.name} thumbnail`}
-                style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 8 }}
-              />
-            )}
-            <div>
-              <div style={{ fontWeight: 600 }}>{app.name}</div>
-              <div style={{ fontSize: '0.85rem', color: '#666' }}>{app.platform}</div>
-            </div>
-          </Link>
-        ))}
+  return (
+    <div className="px-6 py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-3xl">
+        <header className="reveal">
+          <p className="mb-3 font-display text-xs tracking-[0.32em] text-tan uppercase">
+            Legal
+          </p>
+          <h1 className="font-display text-4xl leading-[0.95] tracking-tight text-bone uppercase sm:text-6xl">
+            Privacy policies
+          </h1>
+          <p className="mt-5 max-w-xl leading-relaxed text-bone-dim">
+            Each game gets its own policy — different games collect different
+            things, so none of these are copies of each other.
+          </p>
+        </header>
+
+        <ul className="mt-12 space-y-4">
+          {Object.values(apps).map((app) => (
+            <li key={app.id} className="reveal">
+              <Link
+                to="/privacy/$gameId"
+                params={{ gameId: app.id }}
+                className="group facet flex items-center gap-5 border border-bone/12 bg-pelt p-5 transition-colors duration-500 hover:border-tan/45"
+              >
+                {app.thumbnail && (
+                  <img
+                    src={app.thumbnail}
+                    alt=""
+                    width={64}
+                    height={64}
+                    loading="lazy"
+                    className="facet-sm h-16 w-16 shrink-0 object-cover"
+                  />
+                )}
+                <div className="min-w-0 flex-1">
+                  <h2 className="font-display text-xl tracking-tight text-bone uppercase">
+                    {app.name}
+                  </h2>
+                  <p className="mt-0.5 font-display text-[0.7rem] tracking-[0.22em] text-tan uppercase">
+                    {app.platform}
+                  </p>
+                </div>
+                <span
+                  aria-hidden="true"
+                  className="text-ash transition-all duration-300 group-hover:translate-x-1 group-hover:text-bone"
+                >
+                  →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </main>
+    </div>
   )
 }

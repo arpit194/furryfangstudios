@@ -1,5 +1,9 @@
 import tinytrialsThumb from '../assets/tinytrials-thumb.png'
 import tinytrialsPolicyMd from '../privacy-policies/tinytrials.md?raw'
+import infiniteTicTacToeThumb from '../assets/infinitetictactoe-icon.webp'
+import infiniteTicTacToePolicyMd from '../privacy-policies/infinitetictactoe.md?raw'
+import polyArtBowlingThumb from '../assets/polyartbowling-icon.webp'
+import polyArtBowlingPolicyMd from '../privacy-policies/polyartbowling.md?raw'
 
 export interface AppInfo {
   id: string
@@ -29,6 +33,32 @@ export const apps: Record<string, AppInfo> = {
       { label: 'Ads via Google AdMob', detail: 'The only outside data collection is standard ad-serving data.' },
     ],
     policyMarkdown: tinytrialsPolicyMd,
+  },
+  infinitetictactoe: {
+    id: 'infinitetictactoe',
+    name: 'Infinite Tic Tac Toe',
+    platform: 'Android',
+    thumbnail: infiniteTicTacToeThumb,
+    policyUpdated: 'August 14, 2026',
+    policyGlance: [
+      { label: 'Approximate location', detail: 'Derived from IP address (not GPS), used for in-app features and anonymized usage trends.' },
+      { label: 'Ads via Google AdMob', detail: 'Standard ad-serving data — advertising ID, device info, approximate location.' },
+      { label: 'Built with Unity', detail: 'The engine the app runs on, alongside any of its own enabled services.' },
+    ],
+    policyMarkdown: infiniteTicTacToePolicyMd,
+  },
+  polyartbowling: {
+    id: 'polyartbowling',
+    name: 'PolyArt Bowling',
+    platform: 'Android',
+    thumbnail: polyArtBowlingThumb,
+    policyUpdated: 'August 14, 2026',
+    policyGlance: [
+      { label: 'Approximate location', detail: 'Derived from IP address (not GPS), used for in-app features and anonymized usage trends.' },
+      { label: 'Ads via Google AdMob', detail: 'Standard ad-serving data — advertising ID, device info, approximate location.' },
+      { label: 'Built with Unity', detail: 'The engine the app runs on, alongside any of its own enabled services.' },
+    ],
+    policyMarkdown: polyArtBowlingPolicyMd,
   },
 }
 
