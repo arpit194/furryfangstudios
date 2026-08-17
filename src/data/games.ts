@@ -24,7 +24,9 @@ export const games: GameInfo[] = [
       'Pass-and-play party games for two to six players. Quick rounds, simple rules, one phone.',
     platform: 'Android',
     icon: tinytrialsIcon,
-    status: 'upcoming',
+    status: 'released',
+    storeUrl:
+      'https://play.google.com/store/apps/details?id=com.furryfangstudios.tinytrials',
   },
   {
     id: 'infinitetictactoe',
