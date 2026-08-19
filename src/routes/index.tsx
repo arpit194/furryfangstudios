@@ -41,11 +41,13 @@ function Home() {
   // entirely until then.
   const [heroReady, setHeroReady] = useState(false)
   useEffect(() => {
-    const id = requestIdleCallback?.(() => setHeroReady(true)) ??
-      window.setTimeout(() => setHeroReady(true), 200)
+    const hasIdleCallback = typeof requestIdleCallback === 'function'
+    const id = hasIdleCallback
+      ? requestIdleCallback(() => setHeroReady(true))
+      : window.setTimeout(() => setHeroReady(true), 200)
     return () => {
-      if (typeof id === 'number') window.clearTimeout(id)
-      else cancelIdleCallback?.(id)
+      if (hasIdleCallback) cancelIdleCallback(id)
+      else window.clearTimeout(id)
     }
   }, [])
 
