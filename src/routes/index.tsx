@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import heroLoop from '@/assets/hero-loop.webm'
 import { games } from '@/data/games'
+import { assetPacks } from '@/data/assetPacks'
+import { ScreenshotCarousel } from '@/components/ScreenshotCarousel'
 import { FangRule } from '@/components/FangRule'
 import { useScrollReveals, usePointerParallax } from '@/lib/motion'
 
@@ -255,6 +257,103 @@ function Home() {
                       {Card}
                     </a>
                   )}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <FangRule className="mx-auto max-w-6xl px-6" />
+
+      {/* ── Asset packs ───────────────────────────────────────────────────
+          Side work that comes out of making the games: the low-poly kits we
+          build for our own projects, packaged for other developers. One
+          wide row per pack - screenshots carry these, so the carousel gets
+          most of the width. */}
+      <section id="assets" className="scroll-mt-20 px-6 py-24 sm:py-32">
+        <div className="mx-auto w-full max-w-6xl">
+          <header className="reveal mb-14">
+            <p className="mb-3 font-display text-xs tracking-[0.32em] text-tan uppercase">
+              For developers
+            </p>
+            <h2 className="font-display text-4xl leading-[0.95] tracking-tight text-bone uppercase sm:text-6xl">
+              Asset packs
+            </h2>
+          </header>
+
+          <ul className="space-y-16">
+            {assetPacks.map((pack) => {
+              const isReleased = pack.status === 'released' && pack.storeUrl
+              return (
+                <li
+                  key={pack.id}
+                  className="reveal grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start"
+                >
+                  <ScreenshotCarousel
+                    shots={pack.screenshots}
+                    label={`${pack.name} screenshots`}
+                  />
+
+                  <div>
+                    <p className="font-display text-[0.7rem] tracking-[0.22em] text-tan uppercase">
+                      {pack.engine}
+                      {!isReleased && ' · Coming soon'}
+                    </p>
+                    <h3 className="mt-2 font-display text-3xl leading-none tracking-tight text-bone uppercase sm:text-4xl">
+                      {pack.name}
+                    </h3>
+                    <p className="mt-2 text-bone-dim">{pack.subtitle}</p>
+
+                    <p className="mt-6 leading-relaxed text-bone-dim">
+                      {pack.description}
+                    </p>
+
+                    <dl className="mt-8 grid grid-cols-3 border-y border-bone/12">
+                      {pack.stats.map((stat) => (
+                        <div key={stat.label} className="py-4">
+                          <dt className="font-display text-[0.65rem] tracking-[0.2em] text-ash uppercase">
+                            {stat.label}
+                          </dt>
+                          <dd className="mt-1 font-display text-2xl text-bone tabular-nums">
+                            {stat.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <ul className="mt-6 space-y-2.5 text-sm text-bone-dim">
+                      {pack.highlights.map((h) => (
+                        <li key={h} className="flex gap-3">
+                          <svg
+                            aria-hidden="true"
+                            width="8"
+                            height="12"
+                            viewBox="0 0 8 12"
+                            className="mt-1 shrink-0"
+                          >
+                            <path d="M0 0 L8 0 L4 12 Z" className="fill-tan/70" />
+                          </svg>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {isReleased ? (
+                      <a
+                        href={pack.storeUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="facet-sm mt-8 inline-block bg-bone px-8 py-3.5 font-display text-sm tracking-[0.18em] text-void uppercase transition-transform duration-300 ease-fang hover:-translate-y-0.5 hover:bg-tan-hot"
+                      >
+                        View on the Unity Asset Store
+                      </a>
+                    ) : (
+                      <p className="facet-sm mt-8 inline-block border border-bone/20 px-8 py-3.5 font-display text-sm tracking-[0.18em] text-ash uppercase">
+                        Coming to the Asset Store
+                      </p>
+                    )}
+                  </div>
                 </li>
               )
             })}

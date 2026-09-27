@@ -42,6 +42,13 @@ function RootLayout() {
             </Link>
             <Link
               to="/"
+              hash="assets"
+              className="text-ash transition-colors hover:text-bone"
+            >
+              Assets
+            </Link>
+            <Link
+              to="/"
               hash="studio"
               className="text-ash transition-colors hover:text-bone"
             >
