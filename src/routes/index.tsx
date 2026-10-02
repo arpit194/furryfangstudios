@@ -190,9 +190,6 @@ function Home() {
       <section id="games" className="scroll-mt-20 px-6 py-24 sm:py-32">
         <div className="mx-auto w-full max-w-6xl">
           <header className="reveal mb-14">
-            <p className="mb-3 font-display text-xs tracking-[0.32em] text-tan uppercase">
-              Currently
-            </p>
             <h2 className="font-display text-4xl leading-[0.95] tracking-tight text-bone uppercase sm:text-6xl">
               The games
             </h2>
