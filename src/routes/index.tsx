@@ -36,6 +36,11 @@ function Home() {
   useScrollReveals()
   const parallaxRef = usePointerParallax(1)
 
+  // Featured games get the wide spotlight (screenshots + details) at the top
+  // of the games section; the shelf below lists the rest.
+  const featuredGames = games.filter((g) => g.featured && g.screenshots?.length)
+  const shelf = games.filter((g) => !featuredGames.includes(g))
+
   // The hero clip is fetched only after the page has already painted, so a
   // 1.4MB video never competes with critical resources for bandwidth or
   // blocks first paint. preload="none" keeps the browser from touching the
@@ -193,8 +198,101 @@ function Home() {
             </h2>
           </header>
 
+          {featuredGames.map((game) => {
+            const isReleased = game.status === 'released' && game.storeUrl
+            return (
+              <article
+                key={game.id}
+                className="reveal mb-20 grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start"
+              >
+                <ScreenshotCarousel
+                  shots={game.screenshots ?? []}
+                  label={`${game.name} screenshots`}
+                />
+
+                <div>
+                  <p className="font-display text-[0.7rem] tracking-[0.22em] text-tan uppercase">
+                    Featured · {game.platform}
+                    {!isReleased && ' · Coming soon'}
+                  </p>
+                  <div className="mt-3 flex items-center gap-5">
+                    <img
+                      src={game.icon}
+                      alt=""
+                      width={72}
+                      height={72}
+                      loading="lazy"
+                      className="facet-sm h-16 w-16 shrink-0 object-cover sm:h-[4.5rem] sm:w-[4.5rem]"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-display text-3xl leading-none tracking-tight text-bone uppercase sm:text-4xl">
+                        {game.name}
+                      </h3>
+                      {game.subtitle && (
+                        <p className="mt-2 text-bone-dim">{game.subtitle}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="mt-6 leading-relaxed text-bone-dim">
+                    {game.description ?? game.tagline}
+                  </p>
+
+                  {game.stats && (
+                    <dl className="mt-8 grid grid-cols-3 border-y border-bone/12">
+                      {game.stats.map((stat) => (
+                        <div key={stat.label} className="py-4">
+                          <dt className="font-display text-[0.65rem] tracking-[0.2em] text-ash uppercase">
+                            {stat.label}
+                          </dt>
+                          <dd className="mt-1 font-display text-2xl text-bone tabular-nums">
+                            {stat.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+
+                  {game.highlights && (
+                    <ul className="mt-6 space-y-2.5 text-sm text-bone-dim">
+                      {game.highlights.map((h) => (
+                        <li key={h} className="flex gap-3">
+                          <svg
+                            aria-hidden="true"
+                            width="8"
+                            height="12"
+                            viewBox="0 0 8 12"
+                            className="mt-1 shrink-0"
+                          >
+                            <path d="M0 0 L8 0 L4 12 Z" className="fill-tan/70" />
+                          </svg>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {isReleased ? (
+                    <a
+                      href={game.storeUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="facet-sm mt-8 inline-block bg-bone px-8 py-3.5 font-display text-sm tracking-[0.18em] text-void uppercase transition-transform duration-300 ease-fang hover:-translate-y-0.5 hover:bg-tan-hot"
+                    >
+                      Get it on Google Play
+                    </a>
+                  ) : (
+                    <p className="facet-sm mt-8 inline-block border border-bone/20 px-8 py-3.5 font-display text-sm tracking-[0.18em] text-ash uppercase">
+                      Coming soon to Google Play
+                    </p>
+                  )}
+                </div>
+              </article>
+            )
+          })}
+
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {games.map((game) => {
+            {shelf.map((game) => {
               const isUpcoming = game.status === 'upcoming'
               const Card = (
                 <article

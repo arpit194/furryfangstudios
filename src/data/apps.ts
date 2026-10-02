@@ -1,3 +1,5 @@
+import zeroBrakeThumb from '../assets/zerobrake-icon.webp'
+import zeroBrakePolicyMd from '../privacy-policies/zerobrake.md?raw'
 import tinytrialsThumb from '../assets/tinytrials-thumb.png'
 import tinytrialsPolicyMd from '../privacy-policies/tinytrials.md?raw'
 import infiniteTicTacToeThumb from '../assets/infinitetictactoe-icon.webp'
@@ -21,6 +23,19 @@ export interface AppInfo {
 }
 
 export const apps: Record<string, AppInfo> = {
+  zerobrake: {
+    id: 'zerobrake',
+    name: 'Zero Brake',
+    platform: 'Android',
+    thumbnail: zeroBrakeThumb,
+    policyUpdated: 'October 2, 2026',
+    policyGlance: [
+      { label: 'No accounts', detail: "You don't sign up or log in — nothing to link to your identity." },
+      { label: 'Progress stays on your phone', detail: 'Scores, coins, garage and settings are saved on your device only.' },
+      { label: 'Ads via Google AdMob', detail: 'Standard ad-serving data, with consent options where the law requires them.' },
+    ],
+    policyMarkdown: zeroBrakePolicyMd,
+  },
   tinytrials: {
     id: 'tinytrials',
     name: 'Tiny Trials',
