@@ -35,7 +35,7 @@ export interface GameInfo {
 
 /** The games on the home page. Order here is deliberate, not alphabetical or
  *  by release date: Zero Brake is featured (the spotlight above the shelf) as
- *  the next release, then Tiny Trials leads the shelf as the current flagship,
+ *  the newest release, then Tiny Trials leads the shelf as the current flagship,
  *  then the two older live games follow. */
 export const games: GameInfo[] = [
   {
@@ -45,7 +45,8 @@ export const games: GameInfo[] = [
       'Weave through rush-hour traffic at full speed. Close calls build your combo - one touch of another car ends the run.',
     platform: 'Android',
     icon: zeroBrakeIcon,
-    status: 'upcoming',
+    status: 'released',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.furryfangstudios.zerobrake',
     featured: true,
     subtitle: 'No hesitation. No brakes.',
     description:
@@ -60,7 +61,7 @@ export const games: GameInfo[] = [
       'Overtakes, near misses and close calls chain into a combo',
       'Garage: every colour, eight liveries, underglow and four upgrades',
       'Three new daily challenges every day',
-      'Day and night, fog and rain, seven radio stations',
+      'Day and night, fog, and seven radio stations',
       'Plays fully offline',
     ],
     screenshots: [
