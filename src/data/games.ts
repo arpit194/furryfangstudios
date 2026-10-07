@@ -50,9 +50,9 @@ export const games: GameInfo[] = [
     featured: true,
     subtitle: 'No hesitation. No brakes.',
     description:
-      'A high-speed highway cut-up through a low-poly city. Thread the gaps between cars in three-minute runs: every overtake, near miss and close call feeds your combo, and one crash ends the run. Spend what you earn in the garage on paint, liveries, underglow and performance upgrades.',
+      'A high-speed highway cut-up through a low-poly city. Thread the gaps between cars in two-minute runs: every overtake, near miss and close call feeds your combo, and one crash ends the run. Spend what you earn in the garage on paint, liveries, underglow and performance upgrades.',
     stats: [
-      { value: '3:00', label: 'Timed runs' },
+      { value: '2:00', label: 'Timed runs' },
       { value: '7', label: 'Districts' },
       { value: '8', label: 'Liveries' },
     ],
