@@ -28,7 +28,7 @@ export const apps: Record<string, AppInfo> = {
     name: 'Zero Brake',
     platform: 'Android',
     thumbnail: zeroBrakeThumb,
-    policyUpdated: 'October 10, 2026',
+    policyUpdated: 'October 11, 2026',
     policyGlance: [
       { label: 'No accounts', detail: "You don't sign up or log in — nothing to link to your identity." },
       { label: 'Progress stays on your phone', detail: 'Your save (scores, coins, garage, settings) lives on your device only.' },

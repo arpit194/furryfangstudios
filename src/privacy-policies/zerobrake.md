@@ -23,15 +23,17 @@ Where the law requires it (for example in the European Economic Area, the UK and
 
 Ads need an internet connection. Without one, the game is fully playable and no ads are shown.
 
-### Google Firebase: Analytics and Crashlytics
+### Google Firebase: Analytics, Crashlytics and Remote Config
 
 Zero Brake uses **Google Analytics for Firebase** to understand how the game is played (for example, how long runs last, which features are used, and where new players stop playing) and to measure ads and our own marketing campaigns. It records:
 
-- Gameplay events: runs started and finished (score, length, coins earned, close calls and similar counts), garage purchases made with in-game coins, ads shown and save-run choices, tutorial and daily challenge progress, menu choices (time of day, start area), settings (controls, graphics quality, traffic) and the average frame rate
+- Gameplay events: runs started and finished (score, length, distance, top and average speed, coins earned, crashes, close calls and similar counts), what was hit in a crash, personal records beaten, garage purchases made with in-game coins and car customisation choices (colour, livery, underglow), ads offered, shown and watched and the rewards they gave, save-run choices, tutorial and daily challenge progress, menu choices (time of day, start area), settings (controls, graphics quality, traffic) and the average frame rate
 - Information collected automatically by Firebase: app version, device model, operating system version, language, approximate location (country or region, derived from the IP address), times of first launch and of play sessions, and a random app instance identifier created by Firebase
 - Where permitted, the Android Advertising ID, used to measure ads and ad campaigns
 
 Zero Brake uses **Firebase Crashlytics** to receive crash reports, which contain technical details of the crash (the code location, device model, operating system and app version, free memory and storage) and a random installation identifier, so that we can fix problems.
+
+Zero Brake uses **Firebase Remote Config** to adjust game settings, such as how often ads appear and the size of in-game rewards, without an app update. To deliver these settings, Firebase uses a random installation identifier and basic device information (app version, operating system, language and country).
 
 This information does not include your name or contact details, is used only to improve the game and our marketing, and is never sold. It is processed by Google in accordance with [Google's Privacy Policy](https://policies.google.com/privacy) and [Firebase's privacy information](https://firebase.google.com/support/privacy). Where the law requires consent (the European Economic Area, the UK and Switzerland), analytics follows the same choice you make in Google's consent message: if you decline, Firebase only sends anonymous counts without identifiers. You can change your choice at any time from the game's settings (**AD PRIVACY**). Offline, events wait on your device and are sent the next time you are online.
 
